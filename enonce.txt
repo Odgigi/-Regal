@@ -1,0 +1,70 @@
+Enoncé
+
+Vous êtes invité à créer un site de recettes de cuisine 
+
+le site est composé de deux parties : une partie publique et une partie privée (accessible via une authentification)
+
+dans la partie publique vous avez les 6 pages suivantes :
+- page d'accueil qui présente les 3 dernières recettes de cuisine publiées
+- page recette qui présente une recette de cuisine sélectionnée
+- page de contact avec un formulaire avec deux champs email et commentaire pour poser des questions
+- page de login pour accéder à la partie privée du site 
+    cette page contient un formulaire avec deux champs login et password 
+- une page mentions légales
+- une page 404 si la page demandée n'existe pas 
+
+dans la partie privée vous avez les pages suivantes :
+- une page d'accueil qui vient saluer le gestionnaire du site 
+- une section gestion de pages pour créer la page mention légale 
+- une section gestion des recettes qui permet de réaliser un CRUD sur les recettes de cuisines 
+- une section commentaire dans laquelle on affiche l'ensemble des commentaires saisis dans la page contact de la partie public
+
+
+au niveau base de données vous avez 3 tables 
+
+table page qui contient les colonnes suivantes 
+TABLE pages 
+id clé primaire 
+titre texte avec un maximum de 255 lettres 
+contenu texte avec un maximum de 65 milles lettres 
+dt_creation date et l'heure 
+
+TABLE recettes 
+id clé primaire 
+nom texte avec un maximum de 255 lettres 
+preparation texte avec un maximum de 65 milles lettres 
+prix chiffre entier maximum de 65 000 
+categorie 3 valeurs possibles entree / plat / dessert 
+image avec un maximum de 255 lettres 
+auteur texte avec un maximum de 255 lettres 
+dt_creation date et l'heure 
+
+TABLE users
+id clé primaire 
+nom texte avec un maximum de 255 lettres 
+email texte avec un maximum de 255 lettres 
+password texte avec un maximum de 255 lettres 
+dt_creation date et l'heure
+
+TABLE contacts
+id clé primaire 
+email texte avec un maximum de 255 lettres 
+commentaire texte avec un maximum de 65 milles lettres 
+dt_creation date et l'heure 
+
+----
+
+pour le design du site vous avez carte blanche (réaliser un site qui est ergonomique)
+vous pouvez utiliser une librairie comme Bootstrap ou Materialize pour vous facilitez la vie (vous pouvez aussi utiliser du css de base)
+https://1001recettes.blogspot.com
+https://www.marmiton.org/
+https://www.750g.com/
+----
+
+Ce n'est pas un projet noté 
+Vous pouvez utiliser les notes de cours / les supports / Youtube / internet / ChatGPT... pour réaliser ce projet 
+Chacun doit rendre un projet mais vous pouvez disucuter entre vous pour vour aider à réaliser ce projet 
+
+----
+
+Date de livraison (présentation) => vendredi 17 Février 2023 15h00 
