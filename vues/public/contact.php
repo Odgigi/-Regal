@@ -1,10 +1,17 @@
 <?php
+require "lib/fonctions.php";
+isLogged();
 $titre = "Formulaire de contact";
 echo "<h1>$titre</h1>";
 ?>
 <!-- <h1>Nous contacter</h1> -->
+
+<?php if(isset($user)) :?>
+    <h1 class="mb-4">Ajouter un commentaire</h1>
+<?php endif ?>
+
 <div class="container">
-    <form action="http://localhost/php-initiation/jour12/traitement/form-contact.php" method= "POST">
+    <form action="lib/traitement-contact-form.php" method= "POST">
         <div class="mb-3">
             <label for="email">Votre email</label>
             <input type="email" name="email" id="email" class="form-control" required placeholder="saisir votre email" value="<?php echo !empty($_SESSION["form"]["email"]) ? $_SESSION["form"]["email"]: ""?>">
@@ -19,19 +26,19 @@ echo "<h1>$titre</h1>";
     </form>
 </div>
 
-    <?php if(!empty($_SESSION["message"])) :?>
-        <?php if($_SESSION["message"]["alert"] === "success") :?>
-            <div class="alert alert-success">
-                <?php echo $_SESSION["message"]["info"] ?>
-            </div>
-        <?php else :?>
-            <div class="alert alert-danger">
-                <?php foreach($_SESSION["message"]["info"] as $m) : ?>
-                    <?php echo $m ?> <br>
-                <?php endforeach ?>
-            </div>
-        <?php endif ?>
+<?php if(!empty($_SESSION["message"])) :?>
+    <?php if($_SESSION["message"]["alert"] === "success") :?>
+        <div class="alert alert-success">
+            <?php echo $_SESSION["message"]["info"] ?>
+        </div>
+    <?php else :?>
+        <div class="alert alert-danger">
+            <?php foreach($_SESSION["message"]["info"] as $m) : ?>
+                <?php echo $m ?> <br>
+            <?php endforeach ?>
+        </div>
     <?php endif ?>
+<?php endif ?>
 
 <?php if(!empty($_SESSION["message"])){
     $_SESSION["message"] = [];

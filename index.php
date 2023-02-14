@@ -44,13 +44,13 @@ require "lib/const.php";
         <!-- partie public -->
         <?php if(empty($_GET)) : ?>
             <!-- page d'accueil -->
-            <!-- mise à disposition de la variable $articles pour la page d'accueil uniquement -->
+            <!-- mise à disposition de la variable $recettes pour la page d'accueil uniquement -->
             <?php require "vues/public/accueil.php" ?>
-        <?php elseif(!empty($_GET["page"]) && $_GET["page"] === "article") : ?>
-            <!-- page article -->
-            <?php require "vues/public/article.php" ?>
+        <?php elseif(!empty($_GET["page"]) && $_GET["page"] === "recette") : ?>
+            <!-- page recette -->
+            <?php require "vues/public/recette.php" ?>
         <?php elseif(!empty($_GET["page"]) && $_GET["page"] === "contact") : ?>
-            <!-- page de contact -->
+            <!-- page contact -->
             <?php require "vues/public/contact.php" ?>
         <?php elseif(!empty($_GET["page"]) && $_GET["page"] === "login") : ?>
             <!-- page login -->
