@@ -16,7 +16,7 @@ dans la partie publique vous avez les 6 pages suivantes :
 dans la partie privée vous avez les pages suivantes :
 - une page d'accueil qui vient saluer le gestionnaire du site 
 - une section gestion de pages pour créer la page mention légale 
-- une section gestion des recettes qui permet de réaliser un CRUD sur les recettes de cuisines 
+- une section gestion des recettes qui permet de réaliser un CRUD sur les recettes de cuisine 
 - une section commentaire dans laquelle on affiche l'ensemble des commentaires saisis dans la page contact de la partie public
 
 

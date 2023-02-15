@@ -4,7 +4,7 @@ session_start();
 
 $erreurs = [];
 
-// si un des deux champs est vide => ajouter uen erreur
+// si un des deux champs est vide => ajouter une erreur
 if(empty($_POST["email"]) || empty($_POST["commentaire"])){
     array_push($erreurs, "Veuillez compléter les deux champs.");
 }
