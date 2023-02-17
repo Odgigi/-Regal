@@ -1,7 +1,8 @@
 <?php
+require "const.php";
+require "base-de-donnees.php";
 // http://localhost/php-initiation/jour12/traitement-contact-form.php
 session_start();
-
 $erreurs = [];
 
 // si un des deux champs est vide => ajouter une erreur
@@ -28,6 +29,13 @@ if(count($erreurs) === 0){ // afficher un message sous le formulaire
         "info" => "Merci d'avoir laissé un commentaire !"
     ];
     $_SESSION["form"] = []; // vider les réponses du formulaire
+
+    $sth = $connexion->prepare('
+        INSERT INTO contacts
+        (email, commentaire, dt_creation)
+        VALUES
+        (:email, :commentaire , NOW() )');
+        $sth->execute($_POST);
 } else {
     $_SESSION["message"] = [
         "alert" => "danger",

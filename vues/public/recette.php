@@ -10,7 +10,7 @@ $recette = $sth->fetch();
     <?php echo $recette["preparation"] ?>
 </div>
 <div>
-    <?php echo $recette["prix"] ?>
+    <?php echo $recette["prix"] . "€uros"?>
 </div>
 <div>
     <?php echo $recette["categorie"] ?>

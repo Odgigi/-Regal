@@ -1,4 +1,4 @@
-<?php require "lib/functions.php";
+<?php require "lib/fonctions.php";
 isLogged();
 
 if(isset($page)) :?>
@@ -33,7 +33,7 @@ if(isset($page)) :?>
 
     </form>
 
-    <?php require "lib/message-flash.php" ?>
+    <?php require "lib/messages-flash.php" ?>
   </div>
 </section>
 <script

@@ -11,7 +11,7 @@ header{
 .hero {
     background-color: rgb(67, 189, 37);
     color:blanchedalmond;
-    height: 300px;
+    min-height: 300px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -23,5 +23,19 @@ header{
     background-position: center;
 }
 .hero a{
-    color:rgba(136, 133, 123, 0.877);
+    color:blanchedalmond;
+    padding: 10px 30px;
+    background-color: rgb(70, 70, 100);
+    border-style:  #333 1px solid;
+    border-radius: 50%;
+}
+
+.wrap{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh ;
+}
+
+.quote {
+    font-style:italic;
 }

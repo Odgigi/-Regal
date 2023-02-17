@@ -38,24 +38,27 @@ if(count($erreurs) === 0){
     // si le formulaire ne contient pas d'id 
     if(!isset($_POST["id"])){ 
         // ajouter le profil en base données 
+        var_dump($_POST);
+        exit ;
         $sth = $connexion->prepare("
             INSERT INTO users 
             (nom, email, password, dt_creation)
             VALUES
-            (:nom, :email, MD5(:password), NOW())
+            (:nom, :email, MD5(:password), :dt_creation)
         ");
         $sth->execute($_POST);
     }elseif(isset($_POST["id"]) && empty($_POST["password"])){
         // UPDATE de tous les champs sauf le mot de passe 
+        
         unset($_POST["password"]);
         $sth = $connexion->prepare("
-            UPDATE users SET nom = :nom, email = :email, dt_creation = :NOW() WHERE id = :id 
+            UPDATE users SET nom = :nom, email = :email, dt_creation = :dt_creation WHERE id = :id 
         ");
         $sth->execute($_POST);
     }else {
         // UPDATE de tous les champs y compris le mot de passe 
         $sth = $connexion->prepare("
-            UPDATE users SET nom = :nom, email = :email, password = MD5(:password), dt_creation = :NOW() WHERE id = :id 
+            UPDATE users SET nom = :nom, email = :email, password = MD5(:password), dt_creation = :dt_creation WHERE id = :id 
         ");
         $sth->execute($_POST);
     }

@@ -3,8 +3,8 @@ session_start();
 $erreurs = [];
 require "base-de-donnees.php";
 require "const.php";
-require "lib/functions.php";
-isLogged();
+// require "lib/fonctions.php";
+// isLogged();
 
 if(empty($_POST["titre"]) || empty($_POST["contenu"])){
     array_push($erreurs, "Veuillez remplir tous les champs");
@@ -44,6 +44,7 @@ if(count($erreurs) === 0){
         "alert" => "success",
         "info" => "La page a été mise à jour en base de données."
     ];
+    
     }
 } else {
     $_SESSION["message"] = [

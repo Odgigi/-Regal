@@ -24,7 +24,7 @@ $resultat = $sth->fetchAll();
                     <th>email</th>
                     <th>commentaire</th>
                     <th>date création</th>
-                    <th>action</th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -35,10 +35,6 @@ $resultat = $sth->fetchAll();
                     <td><?php echo htmlentities($contact["email"]) ?></td>
                     <td><?php echo htmlentities($contact["commentaire"]) ?></td>
                     <td><?php echo htmlentities($contact["dt_creation"]) ?></td>
-                    <td>
-                        <a href="<?php echo WWW ?>?page=contacts&partie=privee&action=update&id=<?php echo htmlentities($contact["id"]) ?>" class="btn btn-warning me-2">afficher</a>
-                        <a href="<?php echo WWW ?>?page=contacts&partie=privee&action=delete&id=<?php echo htmlentities($contact["id"]) ?>" class="btn btn-danger" onclick="return confirm('êtes vous sûr de vouloir supprimer ce commentaire ?')">supprimer</a>
-                    </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>

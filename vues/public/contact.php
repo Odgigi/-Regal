@@ -1,6 +1,5 @@
 <?php
-require "lib/fonctions.php";
-isLogged();
+
 $titre = "Formulaire de contact";
 echo "<h1>$titre</h1>";
 ?>

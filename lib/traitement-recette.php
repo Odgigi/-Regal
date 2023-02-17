@@ -3,7 +3,7 @@ session_start();
 $erreurs = [];
 require "base-de-donnees.php";
 require "const.php";
-require "lib/functions.php";
+require "fonctions.php";
 isLogged();
 
 if(empty($_POST["nom"]) || empty($_POST["preparation"]) || empty($_POST["prix"]) || empty($_POST["categorie"]) || empty($_POST["image"]) || empty($_POST["auteur"])){
@@ -39,23 +39,24 @@ if(count($erreurs) === 0){
     $_SESSION["form"] = [];
     // si le formulaire ne contient pas déjà une id
     if(!isset($_POST["id"])){
+      
         $sth = $connexion->prepare('
-        INSERT INTO pages
+        INSERT INTO recettes
         (nom, preparation, prix, categorie, image, auteur, dt_creation)
         VALUES
-        (:nom, :preparation, :prix, :categorie, :image,:auteur, NOW()) ');
+        (:nom, :preparation, :prix, :categorie, :image, :auteur, NOW()) ');
         $sth->execute($_POST);
         $_SESSION["message"] = [
             "alert" => "success",
-            "info" => "La page a été insérée en base de données."
+            "info" => "La recette a été insérée en base de données."
         ];
     } else {
     $sth = $connexion->prepare('
-    UPDATE pages SET nom = :nom, preparation = :preparation, prix = :prix, categorie = :categorie, image = :image, auteur = :auteur WHERE id = :id');
+    UPDATE recettes SET nom = :nom, preparation = :preparation, prix = :prix, categorie = :categorie, image = :image, auteur = :auteur WHERE id = :id');
     $sth->execute($_POST);
     $_SESSION["message"] = [
         "alert" => "success",
-        "info" => "La page a été mise à jour en base de données."
+        "info" => "La recette a été mise à jour en base de données."
     ];
     }
 } else {
@@ -63,6 +64,7 @@ if(count($erreurs) === 0){
         "alert" => "danger",
         "info" => $erreurs
     ];
-    header("Location: " . WWW . "?page=recettes&partie=privee");
+    
 }
+header("Location: " . WWW . "?page=recettes&partie=privee");
 exit;

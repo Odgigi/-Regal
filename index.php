@@ -13,9 +13,9 @@ require "lib/const.php";
     <link rel="stylesheet" href="assets/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
-<body>
+<body class="wrap">
     <header class="sticky-top">
-        <nav class="navbar navbar-expand container navbar-light mb-3">
+        <nav class="navbar navbar-expand container navbar-light display-flex justify-content-space-around mb-3">
             <span class="navbar-brand fs-3">🍽️Régal</span>
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -24,17 +24,18 @@ require "lib/const.php";
                 <li class="nav-item">
                     <a href="<?php echo WWW ?>?page=contact" class="nav-link">Contact</a></li>
             </ul>
+            <span class="quote m-auto"><strong>"Pour réussir une salade, il faut être poète, amoureux et fou". Anonyme</strong></span>
             <ul class="navbar-nav ms-auto">
             <?php if(isset($_SESSION["user"])) :?>
                 <li class="nav-item">
-                    <a href="<?php echo WWW ?>?page=accueil&partie=privee"class="nav-link">Tableau-de-bord</a>
+                    <a href="<?php echo WWW ?>?page=accueil&partie=privee" class="nav-link">Tableau-de-bord</a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?php echo WWW ?>?page=logout"class="nav-link">Déconnexion</a>
+                    <a href="<?php echo WWW ?>?page=logout" class="nav-link">Déconnexion</a>
                 </li>
                 <?php else :?>
                 <li class="nav-item">
-                    <a href="<?php echo WWW ?>?page=login"class="nav-link">Connexion</a>
+                    <a href="<?php echo WWW ?>?page=login" class="nav-link">Connexion</a>
                 </li>
                 <?php endif ?>
             </ul>
@@ -46,7 +47,7 @@ require "lib/const.php";
         <?php if(empty($_GET)) : ?>
             <!-- page accueil => toutes les recettes (on affiche 3 dernières)-->
             <?php 
-            $sth = $connexion->prepare('SELECT * FROM recettes');
+            $sth = $connexion->prepare('SELECT id, nom, preparation, prix, categorie, image AS `image`, auteur, DATE_FORMAT(dt_creation, "%d/%m/%Y") AS `dt_creation` FROM recettes');
             $sth->execute();
             $recettes = $sth->fetchAll();
             ?>
@@ -156,25 +157,8 @@ require "lib/const.php";
         <?php elseif(!empty($_GET["page"]) && !empty($_GET["partie"]) && $_GET["page"] === "contacts" && ($_GET["partie"]) === "privee") :?>
         
             <!-- gérer le CRUD des contacts ajout -->
-        <?php if(!empty($_GET["action"]) && $_GET["action"] == "add") :?>
-                <?php require "vues/privee/gestion-contacts.php" ?>
-            <!-- suppression -->
-        <?php elseif(!empty($_GET["action"]) && $_GET["action"] == "delete") :?>
-            <?php $sth = $connexion->prepare('
-            DELETE FROM contacts WHERE id = :id');
-            $sth->execute(["id" => $_GET["id"]]);
-            header("Location: " . WWW . "?page=contacts&partie=privee");
-            exit;
-            ?>
-            <!-- modifier -->
-        <?php elseif(!empty($_GET["action"]) && $_GET["action"] == "update") :?>
-            <?php $sth = $connexion->prepare('
-            SELECT * FROM contacts WHERE id= :id');
-            $sth->execute(["id" => $_GET["id"]]);
-            $page = $sth->fetch();
-            ?>
+       
             <?php require "vues/privee/gestion-contacts.php" ?>
-        <?php endif ?>
 
         <?php else : ?>
             <!-- page 404 -->
@@ -182,8 +166,10 @@ require "lib/const.php";
         <?php endif ?>
     </div>
 
-    <footer class="text-center position-absolute sticky-bottom">
-        &copy; 2023 - <a href="<?php echo WWW ?>?page=mentions" class="text-decoration-none">Mentions légales</a>
+    <footer >
+        <div class="text-center">
+         &copy; 2023 - <a href="<?php echo WWW ?>?page=mentions" class="text-decoration-none">Mentions légales</a>
+        </div>
     </footer>
 
 

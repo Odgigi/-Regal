@@ -1,5 +1,5 @@
 <?php
-require "lib/functions.php";
+require "lib/fonctions.php";
 isLogged();
 
 $sth = $connexion->prepare('SELECT id, nom, preparation, prix, categorie, image AS `image`, auteur, DATE_FORMAT(dt_creation, "%d/%m/%Y") AS `dt_creation` FROM recettes');

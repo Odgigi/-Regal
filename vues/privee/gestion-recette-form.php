@@ -1,4 +1,4 @@
-<?php require "lib/functions.php";
+<?php require "lib/fonctions.php";
 isLogged();
 
 if(isset($recette)) :?>
@@ -30,9 +30,9 @@ if(isset($recette)) :?>
       <label for="categorie"></label>
         <select name="categorie" id="categorie" class="form-control" placeholder="saisir la catégorie" value="<?php echo isset($recette) ? $recette["categorie"] : "" ?>">
             <option value="">veuillez choisir une catégorie</option>
-            <option value="entree">user</option>
-            <option value="plat">rédacteur</option>
-            <option value="dessert">admin</option>
+            <option value="entree">entrée</option>
+            <option value="plat">plat</option>
+            <option value="dessert">dessert</option>
         </select>
       </div>
       <div>
@@ -52,7 +52,7 @@ if(isset($recette)) :?>
         <input type="submit" class="btn btn-success">
       </div>
     </form>
-    <?php require "lib/message-flash.php" ?>
+    <?php require "lib/messages-flash.php" ?>
   </div>
 </section>
 <script

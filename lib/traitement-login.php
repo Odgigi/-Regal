@@ -2,8 +2,8 @@
 session_start();
 require "base-de-donnees.php";
 require "const.php";
-$erreurs = [];
 
+$erreurs = [];
 
 if(empty($_POST["login"]) || empty($_POST["password"])){
     array_push($erreurs, "Veuillez compléter ces deux champs");
