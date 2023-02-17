@@ -9,8 +9,8 @@ isLogged();
 if(empty($_POST["titre"]) || empty($_POST["contenu"])){
     array_push($erreurs, "Veuillez remplir tous les champs");
 }
-// vérifier que titre contient entre 5 et 255 caractères
 
+// vérifier que titre contient entre 5 et 255 caractères
 if(strlen($_POST["titre"]) <= 4 || strlen($_POST["titre"]) >= 255){
     array_push($erreurs, "Le champ titre doit contenir entre 5 et 255 caractères.");
 }

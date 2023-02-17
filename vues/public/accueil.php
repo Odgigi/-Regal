@@ -1,7 +1,10 @@
-<h1>Bienvenue sur Ô Regal !</h1>
+<section class="hero">
+    <h1>Bienvenue sur Ô Regal !</h1>
+    <a class="btn" href="">Tout sur nous</a>
+</section>
 
 <div class="row">
-
+<h2>Nos recettes à la une...</h2>
 <?php foreach($recettes as $recette) :?>
     <article class="col-3">
         <h2><?php echo $recette["nom"] ?></h2>

@@ -11,4 +11,4 @@
     </div>
 </form>
 
-<?php require "lib/message-flash.php" ?>
+<?php require "lib/messages-flash.php" ?>

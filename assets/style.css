@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: #fd7e14;
+}
+
+.hero {
+    background-color: rgb(67, 189, 37);
+    color:blanchedalmond;
+    height: 300px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background-image: linear-gradient(rgba(0,0,0,0.5), transparent), url(img/Ardoise_part_gâteau_pots.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.hero a{
+    color:rgba(136, 133, 123, 0.877);
+}

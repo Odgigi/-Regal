@@ -1,1 +1,1 @@
-<?php define("WWW", "http://localhost/php-initiation/jour12/index.php");
+<?php define("WWW", "http://localhost/-Regal/index.php");

@@ -28,7 +28,7 @@ if(count($erreurs) === 0){
         ");
         $sth->execute($_POST);
     } else {
-        // UPDATE de tous les champs y compris le mot de passe 
+        // UPDATE ???
         $sth = $connexion->prepare("
             UPDATE contacts SET email = :email, commentaire = :commentaire WHERE id = :id 
         ");

@@ -1,6 +1,7 @@
 <?php
-require "lib/functions.php";
+require "lib/fonctions.php";
 isLogged();
+
 $sth = $connexion->prepare('SELECT id, titre, contenu, DATE_FORMAT(dt_creation, "%d/%m/%Y") AS `dt_creation` FROM pages');
 $sth->execute();
 $resultat = $sth->fetchAll();

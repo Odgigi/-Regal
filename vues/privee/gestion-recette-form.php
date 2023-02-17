@@ -1,5 +1,6 @@
 <?php require "lib/functions.php";
 isLogged();
+
 if(isset($recette)) :?>
 <h1 class="mb-4">Modifier la recette</h1>
 <?php else :?>
@@ -29,9 +30,9 @@ if(isset($recette)) :?>
       <label for="categorie"></label>
         <select name="categorie" id="categorie" class="form-control" placeholder="saisir la catégorie" value="<?php echo isset($recette) ? $recette["categorie"] : "" ?>">
             <option value="">veuillez choisir une catégorie</option>
-            <option value="user">user</option>
-            <option value="rédacteur">rédacteur</option>
-            <option value="admin">admin</option>
+            <option value="entree">user</option>
+            <option value="plat">rédacteur</option>
+            <option value="dessert">admin</option>
         </select>
       </div>
       <div>
